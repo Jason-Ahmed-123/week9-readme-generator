@@ -1,12 +1,16 @@
 {
-  "name": "static-site",
+  "name": "node-readme-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple README file generator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "author": "",
+  "author": {
+    "name": "Jason Ahmed",
+    "email": "jason_ahmed@yahoo.com",
+    "website": "https://jason-ahmed-123.github.io/Week2-Challenge-Portfolio/"
+  },
   "license": "ISC",
   "dependencies": {
     "inquirer": "^6.3.1"

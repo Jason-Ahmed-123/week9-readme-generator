@@ -4,6 +4,9 @@ console.log('Hello Node!');
 // Define inquirer:
 const inquirer = require('inquirer');
 
+// Suggested:
+const fs = require('fs');
+
 // array of questions for user
 const promptUser = () => {
     return inquirer.prompt([
