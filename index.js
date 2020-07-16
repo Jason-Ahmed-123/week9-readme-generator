@@ -52,6 +52,10 @@ const promptUser = () => {
 
 // function to write README file
 function writeToFile(fileName, data) {
+
+    // Here we write the "write" function. Learning Assistant instructed the following:
+    // return
+    // fs.writeFileSync(path.join(process.cwd(), fileName), data); // ...til here
 }
 
 // function to initialize program
