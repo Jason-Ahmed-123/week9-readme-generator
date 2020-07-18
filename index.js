@@ -1,75 +1,76 @@
-// check that this file works:
-console.log('Hello Node!');
+// A check to make sure that this file works:
+// console.log('Hello Node!');
+
+// Must download npm! (Done!)
 
 // Define inquirer:
 const inquirer = require('inquirer');
 
-// Suggested:
 const fs = require('fs');
 
+const path = require('path');
+
+// This now goes to correct folder:
+const generateMarkdown = require('./utils/generateMarkdown.js')
+
 // array of questions for user
-const promptUser = () => {
-    return inquirer.prompt([
-        {
-            type: 'input',
-            name: 'name',
-            message: 'What is your project title? (Required)',
-            validate: nameInput => {
-                if (nameInput) {
-                    return true;
-                } else {
-                    console.log('Please enter your project title!');
-                    return false;
-                }
+const questions = [{
+        type: 'input',
+        name: 'title',
+        message: 'What is your project title? (Required)',
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter your project title!');
+                return false;
             }
-        },
-        {
-            type: 'input',
-            name: 'description',
-            message: 'Please give a short description of your project.',
-        },
-        {
-            type: 'input',
-            name: 'instalsteps',
-            message: 'What are the installation steps (if any)?'
-        },
-        {
-            type: 'input',
-            name: 'instructions',
-            message: 'What are the user instructions?'
-        },
-        {
-            type: 'input',
-            name: 'credits',
-            message: 'List of credits.'
-        },
-        {
-            type: 'input',
-            name: 'license',
-            message: 'Enter license.'
         }
-    ]);
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: 'Please give a short description of your project.',
+    },
+    {
+        type: 'input',
+        name: 'installsteps',
+        message: 'What are the installation steps (if any)?'
+    },
+    {
+        type: 'input',
+        name: 'instructions',
+        message: 'What are the user instructions?'
+    },
+    {
+        type: 'input',
+        name: 'credits',
+        message: 'List of credits:'
+    },
+    {
+        type: 'input',
+        name: 'license',
+        message: 'Enter your license (if any):'
+    }
+];
+
+
+
+// function to write README file (this will actually WRITE the file!):
+function writeToFile(fileName, data) {
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 };
 
-
-
-// function to write README file
-function writeToFile(fileName, data) {
-
-    // Here we write the "write" function. Learning Assistant instructed the following:
-    // return
-    // fs.writeFileSync(path.join(process.cwd(), fileName), data); // ...til here
-}
-
-// function to initialize program
+// function to initialize program:
 function init() {
-
+    inquirer.prompt(questions)
+        .then((responses) => {
+            console.log('now generating README markdown file');
+            writeToFile('README.md', generateMarkdown({
+                ...responses
+            })); // Note to self: The three dots "..." will gather the arguments into an array and expand the elements to fit in multiple places. //
+        })
 }
 
 // function call to initialize program
 init();
-
-
-promptUser()
-    .then(answers => console.log(answers))
-    .then(projectAnswers => console.log(projectAnswers));
