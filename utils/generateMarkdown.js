@@ -18,7 +18,13 @@ function generateMarkdown(data) {
   # ${data.credits}
 
   ## License:
-  # ${data.license} 
+  # ${data.license}
+
+  ## GitHub username:
+  # ${data.github}
+
+  ## Questions? Contact me at:
+  # ${data.email}
 `;
 }
 
