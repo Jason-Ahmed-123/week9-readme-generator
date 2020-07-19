@@ -3,13 +3,13 @@
   # README Generator
 
   ## Description:
-  # A simple markdown file generator, that creates a README file based on user answers to automatic questions.
+  # A simple markdown file generator that creates a new README file based on user inputs.
 
   ## Installation steps (if neccessary):
-  # none
+  # None.
 
   ## User instructions (if neccessary):
-  # Simply answer the questions as you are prompted.
+  # Simply answer the questions when prompted.
 
   ## Credits:
   # Jason Ahmed
@@ -20,5 +20,5 @@
   ## GitHub username:
   # Jason-Ahmed-123
 
-  ## E-mail address:
+  ## Questions? Contact me at:
   # jason_ahmed@yahoo.com
