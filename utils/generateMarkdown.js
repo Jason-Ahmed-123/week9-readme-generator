@@ -8,10 +8,10 @@ function generateMarkdown(data) {
   ## Description:
   # ${data.description}
 
-  ## Installation steps (if neccessary):
+  ## Installation steps (if necessary):
   # ${data.installsteps}
 
-  ## User instructions (if neccessary):
+  ## User instructions (if necessary):
   # ${data.instructions}
 
   ## Credits:
